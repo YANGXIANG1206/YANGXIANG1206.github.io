@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单网页示例</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-globe text-primary text-2xl"></i>
+                <h1 class="text-xl font-bold text-dark">简单网页</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="font-medium hover:text-primary transition-colors">首页</a>
+                <a href="#features" class="font-medium hover:text-primary transition-colors">功能</a>
+                <a href="#gallery" class="font-medium hover:text-primary transition-colors">展示</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-colors">联系我们</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden text-gray-700">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+                <button class="hidden md:block px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors">
+                    立即行动
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="bg-gradient-to-br from-primary/90 to-accent py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                    <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight mb-4">
+                        欢迎来到<br><span class="text-yellow-300">简单网页</span>
+                    </h2>
+                    <p class="text-white/90 text-lg mb-8 max-w-lg mx-auto md:mx-0">
+                        这是一个简洁、美观且功能完整的单页网站示例，可以直接在浏览器中打开使用。
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
+                            了解更多
+                        </button>
+                        <button class="px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg hover:bg-white/10 transition-colors">
+                            查看演示
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=Modern%20web%20design%20concept%20minimalist&sign=6733c2ede941f0d0878bb01aca7b002b" alt="网页设计" class="rounded-xl shadow-2xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能区域 -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">核心功能</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    我们提供一系列简单实用的功能，满足您的基本需求
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 功能卡片 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-mobile text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">响应式设计</h3>
+                    <p class="text-gray-600">
+                        自适应各种屏幕尺寸，在手机、平板和电脑上都能完美展示。
+                    </p>
+                </div>
+                
+                <!-- 功能卡片 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-paint-brush text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">现代美观</h3>
+                    <p class="text-gray-600">
+                        采用现代设计风格，简洁大方，视觉效果出色。
+                    </p>
+                </div>
+                
+                <!-- 功能卡片 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
+                    <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-bolt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">快速加载</h3>
+                    <p class="text-gray-600">
+                        优化的代码结构，确保页面加载迅速，提升用户体验。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 图片展示区域 -->
+    <section id="gallery" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">作品展示</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    浏览我们精心挑选的一些示例作品
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <img src="https://space.coze.cn/api/coze_space/gen_image?image_size=square_hd&prompt=Minimalist%20interior%20design%20modern&sign=3813fb34d6c14f2d03df6f8c14f145aa" alt="作品1" class="rounded-xl shadow-md w-full h-64 object-cover card-hover">
+                <img src="https://space.coze.cn/api/coze_space/gen_image?image_size=square_hd&prompt=Abstract%20art%20colorful%20modern&sign=cf06b0b209f0eea5e60713ad6dd48be1" alt="作品2" class="rounded-xl shadow-md w-full h-64 object-cover card-hover">
+                <img src="https://space.coze.cn/api/coze_space/gen_image?image_size=square_hd&prompt=Nature%20landscape%20mountains%20lake&sign=5a8dabf845c15d70a52b1ed1899bbf99" alt="作品3" class="rounded-xl shadow-md w-full h-64 object-cover card-hover">
+                <img src="https://space.coze.cn/api/coze_space/gen_image?image_size=square_hd&prompt=Urban%20architecture%20modern%20city&sign=54ee8fb1a248556fb911578ef4d3efba" alt="作品4" class="rounded-xl shadow-md w-full h-64 object-cover card-hover">
+                <img src="https://space.coze.cn/api/coze_space/gen_image?image_size=square_hd&prompt=Technology%20gadgets%20minimalist&sign=263512de351c78a4d69c22b3f778f714" alt="作品5" class="rounded-xl shadow-md w-full h-64 object-cover card-hover">
+                <img src="https://space.coze.cn/api/coze_space/gen_image?image_size=square_hd&prompt=Food%20presentation%20healthy%20meal&sign=4a4b34afa1cce3bc2bdc048d2904908c" alt="作品6" class="rounded-xl shadow-md w-full h-64 object-cover card-hover">
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">联系我们</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    有任何问题或建议？请随时与我们联系
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-xl shadow-md">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的姓名">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的邮箱">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">主题</label>
+                        <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入主题">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">留言</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的留言内容"></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors shadow-lg">
+                        发送留言
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fa fa-globe text-primary text-2xl"></i>
+                        <h3 class="text-xl font-bold">简单网页</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        简洁、美观、实用的单页网站示例
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">功能</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors">展示</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">联系信息</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker mt-1 mr-3 text-primary"></i>
+                            <span class="text-gray-400">北京市海淀区科技园</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-3 text-primary"></i>
+                            <span class="text-gray-400">+86 123 4567 8901</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-3 text-primary"></i>
+                            <span class="text-gray-400">info@example.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">订阅通讯</h4>
+                    <p class="text-gray-400 mb-4">
+                        获取最新消息和更新
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="您的邮箱地址" class="flex-1 px-4 py-2 rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-r-lg transition-colors">
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-500">
+                <p>&copy; 2023 简单网页. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 返回顶部功能
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 表单提交处理
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('感谢您的留言！这是一个演示，表单数据不会被实际提交。');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
